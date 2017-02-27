@@ -17,17 +17,6 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
@@ -57,9 +46,9 @@ signs data set:
 
 The code for this step is contained in the third code cell of the IPython notebook.  
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. It is a bar chart showing the initial data.
 
-![output of random test image](https://github.com/trevordo/CarND-Traffic-Sign-Classifier-Project/blob/master/image_plot.png)
+![output of random test image](https://github.com/trevordo/CarND-Traffic-Sign-Classifier-Project/blob/master/chart.png)
 
 ###Design and Test a Model Architecture
 
@@ -108,12 +97,10 @@ My final model consisted of the following layers:
 | RELU					|												|
 | Dropout				| keep probability 0.8							|
 | Fully connected		| Output = 43  									|
-| Softmax				| cross entropy									|
+| Softmax				| 												|
 |						|												|
-|						|												|
+
  
-
-
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the eleventh cell of the ipython notebook. 
@@ -131,14 +118,14 @@ My final model results were:
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
-
+I chose the LeNet architecture that was part of the lesson plan for the MNIST tutorial.  This architure worked well for the that data set so I decide to modify and try a few things like drop out and l2 normalization.
 
 * What were some problems with the initial architecture?
-
+The initial architecture was for optimized for 10 classes and 1 dimension grayscale images.  The sigma for the 
 
 * How was the architecture adjusted and why was it adjusted? 
+I first added a dropout to prevent overfitting, and l2 normalization for additional generalization.  I changed the sigma from 0.1 to 0.2 for additional weight change.  Additional adjustment can include more layers and different activation function.
 
-Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 * Which parameters were tuned? How were they adjusted and why?
 
 
@@ -146,13 +133,13 @@ Typical adjustments could include choosing a different model architecture, addin
 
 If a well known architecture was chosen:
 * What architecture was chosen?
-
+LeNet was chosen.
 
 * Why did you believe it would be relevant to the traffic sign application?
 
 
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
+ The training, validation and test set was all reporting >0.90 accuracy. This model predicted 9/10 images correctly, they all fell in the same range.
 
 ###Test a Model on New Images
 
